@@ -26,6 +26,26 @@ Certain tasks must be run as the root user, so you need to add the user on the V
 master ALL=(ALL) NOPASSWD: ALL
 ```
 
+## Structure
+
+```console
+├── inventory
+│   ├── groups
+│   │   └── controlplanes
+│   └── group_vars
+│       ├── controlplanes
+│       └── workers
+├── media
+│   └── kubejet.png
+├── playbooks
+│   └── install_jetporch.yaml
+└── README.md
+```
+
+### Inventory
+
+Here we have created 2 groups: controlplanes and workers. Within the inventory directory, create a groups subdirectory and a group_vars subdirectory. Within the groups subdirectory, create a file for each group. Within the group_vars subdirectory, create a file for each group. The group_vars files will contain the variables that will be used in the playbook, such as SSH connection information.
+
 ## To run playbook
 
 ```
