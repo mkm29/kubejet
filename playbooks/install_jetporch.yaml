@@ -2,24 +2,28 @@
   groups:
     - controlplanes
 
-  sudo: master
-
   tasks:
+
+    - !facts
 
     - !echo
       msg: "Welcome to KubeJet! Bootstrapping RKE2 on {{ jet_os_release_name }}"
 
-    - !shell
-      cmd: yum -y update && yum -y upgrade
+    # - !shell
+    #   cmd: yum -y update && yum -y upgrade
+    #   with:
+    #     sudo: root
 
     - !echo
       msg: "Install Rust"
 
     - !shell
-      cmd: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+      cmd: "curl https://sh.rustup.rs -sSf | sh -s -- -y"
+      with:
+        sudo: root
 
     - !echo
-      msg: Install JetPorch
+      msg: "Install JetPorch"
 
     - !shell
       cmd: "cargo install jetp"
