@@ -1,0 +1,2 @@
+jet_ssh_user: worker
+jet_ssh_private_key_file: /home/mitchellmurphy/.ssh/rke2-worker

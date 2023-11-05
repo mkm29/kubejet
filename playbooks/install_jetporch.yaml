@@ -1,0 +1,25 @@
+- name: Install Rust and JetPorch
+  groups:
+    - controlplanes
+
+  sudo: master
+
+  tasks:
+
+    - !echo
+      msg: "Welcome to KubeJet! Bootstrapping RKE2 on {{ jet_os_release_name }}"
+
+    - !shell
+      cmd: yum -y update && yum -y upgrade
+
+    - !echo
+      msg: "Install Rust"
+
+    - !shell
+      cmd: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+
+    - !echo
+      msg: Install JetPorch
+
+    - !shell
+      cmd: "cargo install jetp"
