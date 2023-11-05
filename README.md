@@ -8,3 +8,5 @@
 jetp ssh --playbook playbooks/install_jetporch.yaml --inventory ./inventory -vvv
 
 ```
+
+Currently having issues with connecting over SSH...
